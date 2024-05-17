@@ -29,16 +29,14 @@ steps:
 - task: SonarQubeAnalyze@5
   inputs:
     jdkversion: 'JAVA_HOME_11_X64'
+
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'  # Change this to '17'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
+    mavenPomFile: 'pom.xml'  # Path to your pom.xml file
+    goals: 'clean package'    # Maven goals to execute
+    options: '-Xmx3072m'      # Additional Maven options if needed
+    publishJUnitResults: true # Publish JUnit test results
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
 
 
 - task: CopyFiles@2
