@@ -10,7 +10,12 @@ pool:
   name: web1
 
 steps:
-
+- task: JavaToolInstaller@0
+  displayName: 'Install JDK 1.8'
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: x64
+    jdkSourceOption: 'AzureStorage'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
