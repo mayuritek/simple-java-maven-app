@@ -10,14 +10,22 @@ pool:
   name: web1
 
 steps:
+# - task: JavaToolInstaller@0
+#   displayName: 'Install JDK 1.17'
+#   inputs:
+#     versionSpec: '17'
+#     jdkArchitectureOption: x64
+#     jdkSourceOption: 'LocalDirectory'
+#     jdkFile: '/home/ubuntu/jdk17.tar.gz'
+
 - task: JavaToolInstaller@0
-  displayName: 'Install JDK 1.17'
   inputs:
-    versionSpec: '8'
-    jdkArchitectureOption: x64
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
     jdkSourceOption: 'LocalDirectory'
-    jdkFile: '/usr/lib/jvm/java-17-openjdk-amd64/bin/java'
-     
+    jdkFile: '/home/ubuntu/jdk17.tar.gz'
+    jdkDestinationDirectory: '/home/ubuntu/data'
+    cleanDestinationDirectory: false
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
