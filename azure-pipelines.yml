@@ -16,6 +16,8 @@ steps:
     versionSpec: '8'
     jdkArchitectureOption: x64
     jdkSourceOption: 'LocalDirectory'
+    jdkFile: '/usr/lib/jvm/java-17-openjdk-amd64/'
+     
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
